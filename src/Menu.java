@@ -1,5 +1,7 @@
+package src;
 import java.util.Objects;
 import java.util.Scanner;
+
 public class Menu {
     // Fonction pour montrer les infos du personnage créé.
     public void showCharacterInfo(String name, CharacterType type) {
@@ -7,14 +9,14 @@ public class Menu {
         System.out.println("- Name : "+ name);
         System.out.println("- His type : "+ type);
     }
-    public void startMenu() {
+    public Character startMenu() {
 
         // J'initialise mes variables qui vont servir à sélectionner dans le menu et remplir les infos du personnage.
         String select;
         String charName;
         String newName = null;
         Scanner myObj = new Scanner(System.in);
-        System.out.println("Press 'enter' to create character");
+        System.out.println("Press 'Enter' to create character");
 
         // Je simule un "press start" via le bouton Entrée.
         myObj.nextLine();
@@ -46,29 +48,47 @@ public class Menu {
             System.out.println("4 - Change name");
             System.out.println("5 - Change type");
             select = myObj.nextLine();
+
             if (Objects.equals(select, "4")) {
-                Scanner newObj = new Scanner(System.in);                        // 2. Modifier les infos
-                System.out.println("Edit your character's name :");
-                newName = newObj.nextLine();
-                System.out.println("Character updated, here are his info :");
-                showCharacterInfo(newName, type);
+                newName = getNewName(type);
             } if (Objects.equals(select, "5")) {
-                System.out.println("1 - Warrior");
-                System.out.println("2 - Wizard");
-                select = myObj.nextLine();
-                if (Objects.equals(select, "1")) {
-                    type = CharacterType.Warrior;
-                } else {
-                    type = CharacterType.Wizard;
-                }
-                showCharacterInfo(charName, type);
+                type = changeCharacterType(charName, myObj);
                 System.out.println("*GAME STARTING*");
             }
-            myCharacter = new Character(newName, type);
-        } else {                                           // 3. Lancer le jeu
+             myCharacter = new Character(newName, type);
+        } else {                                          // 3. Lancer le jeu
             System.out.println("*GAME STARTING*");
             System.out.println("_________________");
             showCharacterInfo(charName, type);
         }
+        return myCharacter;
+    }
+
+
+    // MÉTHODES
+    private CharacterType changeCharacterType(String charName, Scanner myObj) {
+        String select;
+        CharacterType type;
+        System.out.println("1 - Warrior");
+        System.out.println("2 - Wizard");
+        select = myObj.nextLine();
+
+        if (Objects.equals(select, "1")) {
+            type = CharacterType.Warrior;
+        } else {
+            type = CharacterType.Wizard;
+        }
+        showCharacterInfo(charName, type);
+        return type;
+    }
+
+    private String getNewName(CharacterType type) {
+        String newName;
+        Scanner newObj = new Scanner(System.in);                        // 2. Modifier les infos
+        System.out.println("Edit your character's name :");
+        newName = newObj.nextLine();
+        System.out.println("Character updated, here are his info :");
+        showCharacterInfo(newName, type);
+        return newName;
     }
 }
