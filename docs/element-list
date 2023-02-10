@@ -1,0 +1,9 @@
+src
+src.gear.attack
+src.gear.attack.Combat
+src.gear.attack.Magic
+src.gear.Heal
+src.gear.Protection
+src.gear.Protection.Combat
+src.gear.Protection.Magic
+src.Player
