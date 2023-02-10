@@ -1,5 +1,7 @@
 package src;
 
+import src.Player.Character;
+
 import java.util.Objects;
 import java.util.Scanner;
 public class Game {
@@ -20,22 +22,27 @@ public class Game {
     }
     public void run() {
         System.out.println("GAME START");
-        System.out.println("Character : "+character.getName());
-        System.out.println("Health : "+character.getHealth());
-        System.out.println("You are on case number : "+playerPosition+"/64");
-        while (playerPosition < 64) {
+        System.out.println("You start with : "+character.getHealth());
+        System.out.println(character.getName()+" is on case number : "+playerPosition+"/64");
+        while (playerPosition < 64 && continueOrExit()) {
             move();
         }
     }
     private int throwDice() {
-        System.out.println("Press 'Enter' to roll the dice");
-        keyPress.nextLine();
         System.out.println("You got a ...");
         int pick = (int)(Math.random()*6+1);
         System.out.println(pick);
         System.out.println("Move "+pick+" cases further");
         return pick;
     }
+
+    private boolean continueOrExit() {
+        String continueOrExit;
+        System.out.println("Press 'Enter' to roll the dice or type 'exit' to end the game.");
+        continueOrExit = keyPress.nextLine();
+        return !Objects.equals(continueOrExit, "exit");
+    }
+
     private void move() {
         int pick = throwDice();
         while (pick > 0 && playerPosition < 64){
