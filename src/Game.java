@@ -1,6 +1,6 @@
 package src;
-import src.gear.Protection.GameBoard;
-import src.Player.Character;
+import src.gear.protection.GameBoard;
+import src.characters.Character;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -64,11 +64,11 @@ public class Game {
         System.out.println(" - 1 -      - 2 -");
         System.out.println("Restart     Exit");
         select = keyPress.nextLine();
-        if (Objects.equals(select, "1")) {
-            return true;
-        } else {
+        if (Objects.equals(select, "2")) {
             System.out.println("Bye bye");
             return false;
+        } else {
+            return true;
         }
     }
 

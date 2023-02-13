@@ -1,7 +1,7 @@
 package src;
 
-import src.gear.Protection.GameBoard;
-import src.Player.Character;
+import src.gear.protection.GameBoard;
+import src.characters.Character;
 
 public class Main {
     public static void main(String[] args) {

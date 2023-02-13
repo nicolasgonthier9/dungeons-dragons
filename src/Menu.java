@@ -1,7 +1,7 @@
 package src;
-import src.Player.Character;
-import src.Player.Warrior;
-import src.Player.Wizard;
+import src.characters.Character;
+import src.characters.player.Warrior;
+import src.characters.player.Wizard;
 
 import java.util.Objects;
 import java.util.Scanner;
