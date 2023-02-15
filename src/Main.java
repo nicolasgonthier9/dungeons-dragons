@@ -1,6 +1,5 @@
 package src;
 
-import src.gear.protection.GameBoard;
 import src.characters.Character;
 
 public class Main {

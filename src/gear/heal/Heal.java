@@ -4,6 +4,11 @@ abstract public class Heal {
     private String name;
     private int regain;
 
+    public Heal(String name, int regain) {
+        this.name = name;
+        this.regain = regain;
+    }
+
     /**
      * SETTERS
      * @param name
