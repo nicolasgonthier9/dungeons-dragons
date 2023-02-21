@@ -24,9 +24,4 @@ public class Wizard extends Character {
     public String getAttackNoise() {
         return "SWWooosshHHH";
     }
-
-    @Override
-    public String toString() {
-        return "Wizard{}";
-    }
 }

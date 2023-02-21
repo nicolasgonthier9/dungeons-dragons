@@ -29,7 +29,7 @@ public class Menu {
                 System.out.println("- 3 - Show Character Info");
                 System.out.println("- 4 - START");
             } else {
-                System.out.println("- 1 - Create new Character");
+                System.out.println("- 1 - New Game");
             }
             System.out.println("- 9 - QUIT");
             int select = scanner.nextInt();
@@ -102,6 +102,8 @@ public class Menu {
 
     private void startGame() {
         while (!this.game.hasFinishedGame()) {
+//            System.out.println("Press 'enter' to throw the dice.");
+//            scanner.nextLine();
             this.game.playTurn();
         }
         this.game = new Game();
@@ -116,18 +118,24 @@ public class Menu {
             case 1 -> {
                 System.out.println("Enter your character's name :");
                 String newName = this.scanner.nextLine();
-                character.setName(newName);
+                this.game.getCharacter().setName(newName);
             }
             case 2 -> {
                 String name = character.getName();
-                if (character.getType().equals("Wizard")) {
-                    character = new Warrior(name);
-                }
-                else if (character.getType().equals("Warrior")) {
-                    System.out.printf("%s is now a Wizard !", name);
-                    character = new Wizard(name);
-                }
+                switchCharacterClass(character, name);
             }
+        }
+    }
+
+    private void switchCharacterClass(Character character, String name) {
+        if (character.getType().equals("Wizard")) {
+            this.game.setCharacter(new Warrior(name));
+            System.out.printf("%s is now a Warrior !", name);
+
+        }
+        else if (character.getType().equals("Warrior")) {
+            this.game.setCharacter(new Wizard(name));
+            System.out.printf("%s is now a Wizard !", name);
         }
     }
 

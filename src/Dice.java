@@ -11,7 +11,4 @@ public class Dice {
         return this.random.nextInt(1,7);
     }
 }
-// TODO : ajouter à l'implémentation de throwDice
-//System.out.println("You got a ...");
-//System.out.println("Move "+pick+" cases further");
 
