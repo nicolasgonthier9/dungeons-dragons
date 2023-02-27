@@ -1,14 +1,12 @@
 package src.characters;
 
 import src.equipment.Atk.AtkGear;
-import src.equipment.Def.DefGear;
 
 abstract public class Character {
     private String name;
     private int health;
     private int strength;
     private AtkGear attackGear;
-    private DefGear defenseGear;
     public Character(String name) {
         this.name = name;
     }
@@ -45,14 +43,6 @@ abstract public class Character {
         return attackGear;
     }
 
-    public void setDefenseGear(DefGear defenseGear) {
-        this.defenseGear = defenseGear;
-    }
-
-    public DefGear getDefenseGear() {
-        return defenseGear;
-    }
-
     public abstract String getType();
 
     public abstract String getAttackNoise();
@@ -64,7 +54,6 @@ abstract public class Character {
                 ", health=" + health +
                 ", strength=" + strength +
                 ", weapon=" + attackGear +
-                ", protection=" + defenseGear +
                 '}';
     }
 }

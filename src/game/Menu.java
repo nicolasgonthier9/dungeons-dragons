@@ -100,7 +100,7 @@ public class Menu {
 
     private void startGame() {
         while (!this.game.hasFinishedGame()) {
-//            System.out.println("Press 'enter' to throw the dice.");
+            System.out.println("Press 'enter' to throw the dice.");
 //            scanner.nextLine();
             this.game.playTurn();
         }

@@ -1,11 +1,10 @@
 package src.equipment.Atk;
 
-public class AtkGear {
+abstract public class AtkGear {
     private String name;
     private int atk;
-    public AtkGear(String name, int atk) {
+    public AtkGear(String name) {
         this.name = name;
-        this.atk = atk;
     }
 
     public String getName() {

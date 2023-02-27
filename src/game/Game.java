@@ -2,6 +2,10 @@ package src.game;
 
 import src.characters.Character;
 import src.characters.enemies.Dragon;
+import src.characters.enemies.Goblin;
+import src.characters.enemies.Sorcerer;
+import src.equipment.Atk.*;
+import src.equipment.Potion;
 
 
 import java.util.ArrayList;
@@ -24,14 +28,32 @@ public class Game {
         this.board = new ArrayList<Case>();
         for (int i = 0; i <= 63; i++) {
             switch (i) {
-                case 11, 23, 35 -> {
-                    this.board.add(i, new Encounter());
+                case 19, 26, 42, 53 -> {
+                    this.board.add(i, new Crate(new Sword("Steel Sword")));
                 }
-                case 47 -> {
-                    this.board.add(i, new Encounter(character));
+                case 1, 4, 8, 17, 23 -> {
+                    this.board.add(i, new Crate(new LightningSpell("Lightning Bolt")));
                 }
-                case 59 -> {
-                    this.board.add(i, new Encounter(new Dragon("Sun Dragon")));
+                case 7, 13, 31, 33, 39, 43 -> {
+                    this.board.add(i, new Crate(new Potion("Small Potion", 2)));
+                }
+                case 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 -> {
+                    this.board.add(i, new Encounter(new Goblin("Goblin")));
+                }
+                case 10, 20, 25, 32, 35, 36, 37, 40, 44, 47 -> {
+                    this.board.add(i, new Encounter(new Sorcerer("Sorcerer")));
+                }
+                case 45, 52, 56, 62 -> {
+                    this.board.add(i, new Encounter(new Dragon("Dragon")));
+                }
+                case 2, 11, 5, 22, 38 -> {
+                    this.board.add(i, new Crate(new Mace("Mace")));
+                }
+                case 48, 49 -> {
+                    this.board.add(i, new Crate(new FireSpell("Grillz")));
+                }
+                case 28, 41 -> {
+                    this.board.add(i, new Crate(new Potion("Great Potion", 5)));
                 }
                 default -> {
                     this.board.add(i, new EmptyCase());
@@ -58,7 +80,7 @@ public class Game {
                 System.out.println("You made it to the end of the game !");
             }
         }
-        if (!hasFinishedGame()) {
+        if (!hasFinishedGame() && pick == 0) {
             this.board.get(characterPosition).action(character);
         }
     }
@@ -78,14 +100,6 @@ public class Game {
     }
     public void setCharacter(Character character) {
         this.character = character;
-    }
-
-    public void setBoard(List<Case> board) {
-        this.board = board;
-    }
-
-    public List<Case> getBoard() {
-        return board;
     }
 
     @Override
