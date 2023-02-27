@@ -1,7 +1,7 @@
 package src.characters;
 
-import src.Equipment.Atk.AtkGear;
-import src.Equipment.Def.DefGear;
+import src.equipment.Atk.AtkGear;
+import src.equipment.Def.DefGear;
 
 abstract public class Character {
     private String name;

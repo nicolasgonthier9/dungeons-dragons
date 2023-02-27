@@ -1,4 +1,4 @@
-package src.Equipment;
+package src.equipment;
 
 public class Potion {
     private String name;

@@ -1,5 +1,8 @@
 package src;
 
+import src.game.Game;
+import src.game.Menu;
+
 import java.util.Scanner;
 
 public class Main {

@@ -1,11 +1,11 @@
-package src.Equipment.Atk;
+package src.equipment.Def;
 
-public class AtkGear {
+public class DefGear {
     private String name;
-    private int atk;
-    public AtkGear(String name, int atk) {
+    private int def;
+    public DefGear(String name, int def) {
         this.name = name;
-        this.atk = atk;
+        this.def = def;
     }
 
     public String getName() {
@@ -16,19 +16,19 @@ public class AtkGear {
         this.name = name;
     }
 
-    public int getAtk() {
-        return atk;
+    public int getDef() {
+        return def;
     }
 
-    public void setAtk(int atk) {
-        this.atk = atk;
+    public void setDef(int def) {
+        this.def = def;
     }
 
     @Override
     public String toString() {
-        return "AtkGear{" +
+        return "DefGear{" +
                 "name='" + name + '\'' +
-                ", atk=" + atk +
+                ", def=" + def +
                 '}';
     }
 }

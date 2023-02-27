@@ -1,7 +1,7 @@
 package src.characters.player;
 
-import src.Equipment.Atk.AtkGear;
-import src.Equipment.Def.DefGear;
+import src.equipment.Atk.AtkGear;
+import src.equipment.Def.DefGear;
 import src.characters.Character;
 
 import java.util.Random;

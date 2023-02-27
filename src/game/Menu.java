@@ -1,11 +1,9 @@
-package src;
+package src.game;
 
 import src.characters.Character;
 import src.characters.player.Warrior;
 import src.characters.player.Wizard;
 
-import java.lang.management.PlatformLoggingMXBean;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
@@ -23,7 +21,7 @@ public class Menu {
         scanner.nextLine();
         while (!this.exit) {
             if (this.game.hasCharacter()) {
-                System.out.println("Your character is ready to go !");
+                System.out.println(" Your character is ready to go !");
                 System.out.println("- 1 - Edit Character");
                 System.out.println("- 2 - Delete Character");
                 System.out.println("- 3 - Show Character Info");
